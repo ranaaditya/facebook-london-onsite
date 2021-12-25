@@ -82,9 +82,19 @@ int removeDuplicates(vector<int>& input) {
     return k;
 }
 
+// STL hack
+int removeDuplicatesHack(vector<int>& nums) {
+    nums.erase( unique( nums.begin(), nums.end() ), nums.end() );
+    nums.shrink_to_fit();
+    return nums.size();
+
+     //return std::distance(nums.begin(), std::unique(nums.begin(), nums.end()));
+}
+
 int main() {
     //vector<int> input = {1,1,2};
     vector<int> input = {0,0,1,1,1,2,2,3,3,4};
-    cout << removeDuplicates(input);
+    cout << removeDuplicates(input) << endl;
+ //   cout << removeDuplicatesHack(input);
     return 0;
 }
