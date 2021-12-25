@@ -10,6 +10,10 @@
  */
 
 /**
+ * @link: https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3012/
+ * 
+ * Problem:
+ * 
  * Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
  * If such an arrangement is impossible, it must rearrange it to the lowest possible order (i.e., sorted in ascending order).
  * The replacement must be in place and use only constant extra memory.
@@ -32,6 +36,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/**
+ * @brief 
+ * 
+ * Algorithm:
+ * 
+ * 1. start iterating from last of the array
+ * 2. Find an index such that:
+ * 
+ * a. input[index1] < index[index+1]
+ * b. input[index2] > input[index1]
+ * 
+ * 3. swap(index1, index2)
+ * 4. reverse all elements from index+1 to the end of the array
+ * 
+ * @param input 
+ * @return vector<int> 
+ */
 vector<int> nextPermutation(vector<int>& input) {
     int length = input.size();
     int index = length-2, index_reverse = length-2;
@@ -49,10 +70,18 @@ vector<int> nextPermutation(vector<int>& input) {
     return input;
 }
 
+
+//hack using STL inbuilt functions
+vector<int> nextPermutationHack(vector<int>& input) {
+    std::next_permutation(input.begin(), input.end());
+    return input;
+}
+
 int main() {
     vector<int> input = {1,3,5,4,2};
     //vector<int> input = {3,2,1};
-    auto output = nextPermutation(input);
-    for(auto x : output) cout << x;
+    //auto output = nextPermutation(input);
+    auto hackOutput = nextPermutationHack(input);
+    for(auto x : hackOutput) cout << x;
     return 0;
 }
