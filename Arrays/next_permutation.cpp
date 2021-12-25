@@ -39,7 +39,9 @@ using namespace std;
 /**
  * @brief 
  * 
- * Algorithm:
+ * Solution:
+ * 
+ * Relevant Image: https://leetcode.com/media/original_images/31_nums_graph.png
  * 
  * 1. start iterating from last of the array
  * 2. Find an index such that:
