@@ -35,6 +35,21 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 
  */
 
+/**
+ * Edge cases:
+ * #1:
+ * when array is empty
+ * 
+ * #2:
+ * when array has just one element
+ * 
+ * #3:
+ * when all elements of array are distinct -> this will become the WORST CASE SCENARIO with Time Complexity TC = O(n)
+ * 
+ * #4:
+ * when all elements of the array are same -> TC = O(n)
+ * 
+ */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -59,7 +74,7 @@ int removeDuplicates(vector<int>& input) {
         i = j; 
     }
 
-    //debug purpose
+    //debuging input
     // for(auto x : input) {
     //     cout << x;
     // }
