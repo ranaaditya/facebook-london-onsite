@@ -9,9 +9,50 @@
  * 
  */
 
+/**
+ * Problem:
+ * Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+ * The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+ * 
+ * You must write an algorithm that runs in O(n) time and without using the division operation.
+ * 
+ * Test Cases:
+ * 
+ * #1:
+ * 
+ * Input: nums = [1,2,3,4]
+ * Output: [24,12,8,6]
+ * 
+ * #2:
+ * 
+ * Input: nums = [-1,1,0,-3,3]
+ * Output: [0,0,9,0,0]
+ * 
+ */
+
 #include<bits/stdc++.h>
 using namespace std;
 
+/**
+ * @brief 
+ * One pass solution.
+ * 
+ * Simply find how many zeroes are there in the input array.
+ * 
+ * If only one zero is there then all outputs will be zero except the zeroth index itself, it would be the product of all elements of input except the zero itself.
+ * 
+ * If more than one zero is there then all elements of the output will be zero
+ * 
+ * 
+ * Complexity Analysis:
+ * 
+ * Time Complexity : O(N); N = length of input
+ * 
+ * Space Complexity : O(N); output is fresh new array; we can also make this to O(1) by modifying the input array itself
+ * 
+ * @param input 
+ * @return vector<int> 
+ */
 vector<int> productOfArrayExceptSelf(vector<int>& input) {
     int inputLength = input.size();
     vector<int> output(inputLength, 0), zeroIndex;
