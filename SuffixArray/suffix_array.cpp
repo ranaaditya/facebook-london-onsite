@@ -12,6 +12,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+// Time Complexity - O(nlog^2(n))
+// space complexity - O(n)
 void generateSuffixArray(string input) {
     input += "$";
     int n = input.length();
