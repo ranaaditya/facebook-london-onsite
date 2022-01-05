@@ -51,27 +51,30 @@ using namespace std;
 string makeValidString(string& str) {
     string ans;
     int len = str.length();
-    stack<int> st;
+    queue<int> st;
 
-    for(int i = 0; i < len; i++) {
+    for(int i = 0; i < len;) {
         if(str[i] == '(') st.push(i);
         if(str[i] == ')'){
             if(!st.empty())st.pop();
             else {
-                str.erase(i,1);
+                str.erase(str.begin()+i);
                 len--;
-                i--;
                 continue;
             }
         }
+        i++;
     }
 
+    //cout << "DEBUG MODE; INPUT: " << str << endl;
+    
     if(!st.empty()) {
         int fact=0;
         while(!st.empty()) {
-            int indx = st.top();
+            int indx = st.front();
+            //cout << indx << endl;
             st.pop();
-            str.erase(str.begin()+indx+fact);
+            str.erase(str.begin()+indx-fact);
             fact++;
         }
     }
@@ -79,7 +82,7 @@ string makeValidString(string& str) {
 }
 
 int main() {
-    string input = "a)b(c)d";
+    string input = "((()))((";
     string ip = "lee(t(c)o)de)";
     cout << makeValidString(input) << endl;
     cout << makeValidString(ip) << endl;
