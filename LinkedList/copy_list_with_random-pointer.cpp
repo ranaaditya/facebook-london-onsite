@@ -68,6 +68,14 @@ void printLinkedList(LinkedListNode* head) {
     }
 }
 
+/**
+ * @brief 
+ * This solution takes O(N) time and Space as well !
+ * 
+ * Doing it in O(1) is quite hard !
+ * 
+ * @param head 
+ */
 void CopyLinkedListWithrandomPointer(LinkedListNode *head){
     map<LinkedListNode*, LinkedListNode*> hmap;
 
@@ -118,6 +126,36 @@ LinkedListNode* DeepCopy(LinkedListNode* oldHead) {
     return newHead;
 }
 
+
+void DeepCopyEfficiently(LinkedListNode* head) {
+    LinkedListNode* current = head, *tmp;
+
+    while(current != nullptr) {
+        tmp = current->next;
+        current->next = new LinkedListNode(current->value);
+        current->next->next = tmp;
+        current = tmp;
+    }
+
+    current = head;
+
+    while(current != nullptr) {
+        current->next->random = current->random->next;
+        current = current->next->next;
+    }
+
+    current = head;
+    LinkedListNode* newHead = current->next, *nptr = current->next;
+
+    while(current != nullptr) {
+        nptr = current->next;
+        current->next = current->next->next;
+        current = current->next->next;
+        nptr->next = current->next;
+    }
+
+    printLinkedList(newHead);
+}
 int main() {
     LinkedListNode* head = new LinkedListNode(0);
     for(int i = 1; i < 6; i++)
@@ -126,6 +164,7 @@ int main() {
     //printLinkedList(head);
     // LinkedListNode* ll =  DeepCopy(head);
     // printLinkedList(ll);
-    CopyLinkedListWithrandomPointer(head);
+    //CopyLinkedListWithrandomPointer(head);
+    DeepCopyEfficiently(head);
     return 0;
 }
