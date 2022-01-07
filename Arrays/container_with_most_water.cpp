@@ -15,11 +15,20 @@ using namespace std;
 int mostWater(vector<int> container) {
     int length = container.size();
     int ans = INT_MIN;
-    for(int i = 0; i < length; i++) {
-        for( int j = i+1; j < length; j++) {
-            ans = max(ans, (j-i)*min(container[i], container[j]));
-        }
+    // for(int i = 0; i < length; i++) {
+    //     for( int j = i+1; j < length; j++) {
+    //         ans = max(ans, (j-i)*min(container[i], container[j]));
+    //     }
+    // }
+
+    int left = 0, right = length-1;
+
+    while(left < right) {
+        ans = max(ans, (right - left)*min(container[left], container[right]));
+        if(container[left] < container[right]) left++;
+        else right--;
     }
+    
     return ans;
 }
 
