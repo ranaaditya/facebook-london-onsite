@@ -17,3 +17,4 @@ Good problems to start:
 8. [Shortest way to form string](https://leetcode.com/problems/shortest-way-to-form-string/)
 9. [Distinct Sunsequences - **Hard**](https://leetcode.com/problems/distinct-subsequences/)
 10. [Group Shifted strings](https://leetcode.com/problems/group-shifted-strings/)
+11. [Number of Unique Good Subsequences - **Hard**](https://leetcode.com/problems/number-of-unique-good-subsequences/)
