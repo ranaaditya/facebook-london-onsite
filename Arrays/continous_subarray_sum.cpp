@@ -53,9 +53,7 @@ bool isSubarrayExist(vector<int> nums, int k) {
 
     while(i < length && j < length) {
         currentSum = nums[i];
-        if( i == j) {
-            j++;
-        }
+        j = i+1;
         while(j < length) {
         currentSum += nums[j];
         if(currentSum % k == 0 && (j-i) > 0) {
@@ -68,6 +66,42 @@ bool isSubarrayExist(vector<int> nums, int k) {
     }
     return hasSubArray;
 }
+
+// Trick - unordered map
+bool checkSubarraySum(vector<int>& nums, int k) {
+    if(nums.size() == 1) return false;
+    unordered_map <int,int> mp;
+    int sum = 0;
+    for(int i=0; i<nums.size(); i++) {
+        sum += nums[i];
+        int mod = sum % k;
+        if(mod == 0 && i >= 1) return true;
+        if(mp.find(mod) == mp.end()) mp[mod] = i;
+        else if(mp.find(mod) != mp.end() && i - mp[mod] >= 2) return true;
+    }
+    return false;
+}
+
+  bool checkSubarraySumPrefixArray(vector<int>& nums, int k) {
+        int n = nums.size();
+        vector<int> preSum(n);
+        preSum[0] = nums[0]%k;
+        for(int i = 1;i<n;i++) {
+            preSum[i] = (preSum[i - 1]%k + nums[i]%k) % k;
+        }
+        
+        unordered_map<int,int> lastInd;
+        lastInd[0] = -1;
+        
+        for(int i = 0;i<n;i++) {
+            if(lastInd.find(preSum[i]) != lastInd.end()) {
+                if(i - lastInd[preSum[i]] > 1)return  true;
+            } else {
+                lastInd[preSum[i]] = i;
+            }
+        }
+        return false;
+    }
 
 int main() {
     vector<int> nums = {23,2,6,4,7};
