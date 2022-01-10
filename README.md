@@ -19,3 +19,4 @@ Good problems to start:
 10. [Group Shifted strings](https://leetcode.com/problems/group-shifted-strings/)
 11. [Number of Unique Good Subsequences - **Hard**](https://leetcode.com/problems/number-of-unique-good-subsequences/)
 12. [Number of Matching Subsequences - **Good**](https://leetcode.com/problems/number-of-matching-subsequences/)
+13. [Merge Intervals - **short implemetation with STL**](https://leetcode.com/problems/merge-intervals)
