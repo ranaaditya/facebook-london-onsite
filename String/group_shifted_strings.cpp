@@ -12,6 +12,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+string getStringHash(string str) {
+    string ans = "";
+    int shift = 0;
+
+    for(int i = 1; i < str.length(); i++) {
+        shift = str[i] - str[i-1];
+        if(shift < 0) shift += 26;
+        ans += to_string(shift);
+    }
+
+    return ans;
+}
+
 vector<vector<string>> groupShiftedStrings(vector<string> ip) {
     vector<vector<string>> ans(ip.size());
     map<string, vector<string>> hmap;
@@ -20,11 +33,8 @@ vector<vector<string>> groupShiftedStrings(vector<string> ip) {
     for(auto x : ip) {
         int len = x.length();
         diff.clear();
-        
-        for(int i = 1; i < len; i++) {
-            diff += to_string(abs(x[i-1]-x[i]));
-        }
-        cout << "DEBUG : " << diff << endl;
+        diff = getStringHash(x);
+        cout << "DEBUG : "  << x << "\t" << diff << endl;
         hmap[diff].push_back(x);
     }
 
@@ -46,7 +56,6 @@ int main() {
     for(auto x : output) {
         for(auto h : x)
         cout << h << "\t";
-
         cout << endl;
     }
 
