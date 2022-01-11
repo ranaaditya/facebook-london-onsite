@@ -20,3 +20,4 @@ Good problems to start:
 11. [Number of Unique Good Subsequences - **Hard**](https://leetcode.com/problems/number-of-unique-good-subsequences/)
 12. [Number of Matching Subsequences - **Good**](https://leetcode.com/problems/number-of-matching-subsequences/)
 13. [Merge Intervals - **short implemetation with STL**](https://leetcode.com/problems/merge-intervals)
+14. [Random pick with weight - **Nice explanation of probability with prefix sum**](https://leetcode.com/problems/random-pick-with-weight/)
