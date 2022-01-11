@@ -56,7 +56,6 @@
  * Input: s = "e"
  * 
  * Output: false
- * 
  * #3:
  * 
  * Input: s = "."
@@ -66,35 +65,62 @@
  * 
  * Constraints:
  * 
- * -> 1 <= s.length <= 20
+ * 1 <= s.length <= 20
  * 
- * -> s consists of only English letters (both uppercase and lowercase), digits (0-9), plus '+', minus '-', or dot
+ * s consists of only English letters (both uppercase and lowercase), digits (0-9), plus '+', minus '-', or dot
  * 
  */
 #include<bits/stdc++.h>
 using namespace std;
 
 bool isValidNum(char ch) {
-    return (ch == '0' || ch == '1' || ch == '2' || ch == '3' || ch == '3' || ch == '4' || ch == '5' || ch == '6' || ch == '7' || ch == '8' || ch == '9' || ch == 'e' || ch == 'E' || ch == '+' || ch == '-');
+    return ((ch - '0') >= 0 && (ch - '0') <= 9);
 }
 
-bool isValidNumber(string num) {
-    int length = num.length();
-    if(length == 1 && (num[0] == 'e' || num[0] == '.')) return false;
-    int index = 0;
-    bool signing = (num[0] == '+' || num[0] == '-');
-    if(signing) index = 1;
+bool isValidSign(char sign) {
+    return (sign == '+' || sign == '-');
+}
 
-    for(; index < length; index++) {
-        if(isValidNum(num[index])) continue;
-        else if(num[index] == '.') continue;
-        else return false;
+bool isExponenetial(char exp) {
+    return ((exp == 'e') || (exp == 'E'));
+}
+
+bool validNumberImproved(string num) {
+    int index = 0;
+    bool isSign = false;
+    bool isE = false;
+    bool isDecimal = false;
+    int length = num.length();
+    
+    if(length < 2) {
+        return isValidNum(num[0]);
+    }
+
+    for(int i = 0; i < length ; i++) {
+        if(isValidSign(num[i])){
+            if(i == 0) continue;
+            else if((i > 0 && i <= length-2) && isExponenetial(num[i-1]))continue;
+            else return false;
+        } else if(isValidNum(num[i])) {
+            continue;
+        } else if(num[i] == '.') {
+            if((i > 0 && i <= length-2) && (isValidNum(num[i-1]) && isValidNum(num[i+1]))) {
+                continue;
+            } else return false;
+        } else if(isExponenetial(num[i])) {
+            if((i > 0 && i <= length-2)) {
+                if(isValidSign(num[i+1]) && isValidNum(num[i+2])) continue;
+                else if(isValidNum(num[i+1]) && isValidNum(num[i-1])) continue;
+                else return false;
+            } else return false;
+        }
     }
 
     return true;
 }
+
 int main() {
-    string str = "e";
-    cout << isValidNumber(str) << endl;
+    string str = "1e-4";
+    cout << validNumberImproved(str) << endl;
     return 0;
 }
