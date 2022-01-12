@@ -21,3 +21,4 @@ Good problems to start:
 12. [Number of Matching Subsequences - **Good**](https://leetcode.com/problems/number-of-matching-subsequences/)
 13. [Merge Intervals - **short implemetation with STL**](https://leetcode.com/problems/merge-intervals)
 14. [Random pick with weight - **Nice explanation of probability with prefix sum**](https://leetcode.com/problems/random-pick-with-weight/)
+15. [Palindrome pairs - **hard**, **too long for interview but has good concept**](https://leetcode.com/problems/palindrome-pairs/)
