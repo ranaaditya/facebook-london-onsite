@@ -47,8 +47,38 @@ string shortestPalindrome(string input) {
     return output;
 }
 
+// KMP lookup is used here
+string shortestPalindromeKMP(string input) {
+    string output;
+    int ipLength = input.length();
+    string rev(input);
+    reverse(rev.begin(), rev.end());
+    //cout << "rev: " << rev << "\n";
+    string str = input + "#" + rev;
+    int strLength = str.length();
+    
+    vector<int> f(strLength, 0);
+    int t = 0;
+
+    for(int i = 1; i < strLength; i++) {
+        t = f[i-1];
+
+        while(t > 0 && str[i] != str[t]) {
+            t = f[t-1];
+        }
+
+        if(str[i] == str[t])
+        ++t;
+
+        f[i] = t;
+    }
+
+    output = rev.substr(0, ipLength-f[strLength-1])+input;
+    return output;
+}
+
 int main() {
-    string str = "baaa";
-    cout << shortestPalindrome(str) << endl;
+    string str = "aacecaaa";
+    cout << shortestPalindromeKMP(str) << endl;
     return 0;
 }
