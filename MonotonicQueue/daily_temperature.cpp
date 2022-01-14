@@ -77,9 +77,33 @@ vector<int> dailyTemperature(vector<int> temperatures) {
     return nextHighTemperatures;
 }
 
+// space optimized solution O(1)
+vector<int> dailyHighTemperatureOptimized(vector<int> temperatures) {
+    int length = temperatures.size();
+    vector<int> nextHighTemperature(length, 0);
+    int maxTemperature = 0;
+
+    for(int i = length-1; i >= 0; i--) {
+        int currentTemperature = temperatures[i];
+
+        if(currentTemperature >= maxTemperature){
+            maxTemperature = currentTemperature;
+            continue;
+        }
+
+        int days = 1;
+        while(temperatures[i + days] <= currentTemperature) {
+            days += nextHighTemperature[i + days];
+        }
+
+        nextHighTemperature[i] = days;
+    }
+
+    return nextHighTemperature;
+}
 int main() {
     vector<int> temperatures = {73,74,75,71,69,72,76,73};
-    auto output = dailyTemperature(temperatures);
+    auto output = dailyHighTemperatureOptimized(temperatures);
 
     for(auto x : output)
     cout << x << "\t";
