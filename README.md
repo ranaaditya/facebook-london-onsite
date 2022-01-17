@@ -26,3 +26,4 @@ Good problems to start:
 
 ### Behavioural Interview ( Jedi round)  resources:
 - [Interview Sage's blog - good to start to know what exactly happens in JEDI / Behavioural Interviews](https://dev.to/theinterviewsage/top-facebook-behavioral-interview-questions-part-1-2a0o?signin=true)
+- [Concide Guide about the interviews at Meta](https://igotanoffer.com/blogs/tech/facebook-software-engineer-interview)
