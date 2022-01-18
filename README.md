@@ -22,3 +22,8 @@ Good problems to start:
 13. [Merge Intervals - **short implemetation with STL**](https://leetcode.com/problems/merge-intervals)
 14. [Random pick with weight - **Nice explanation of probability with prefix sum**](https://leetcode.com/problems/random-pick-with-weight/)
 15. [Palindrome pairs - **hard**, **too long for interview but has good concept**](https://leetcode.com/problems/palindrome-pairs/)
+
+
+### Behavioural Interview ( Jedi round)  resources:
+- [Interview Sage's blog - good to start to know what exactly happens in JEDI / Behavioural Interviews](https://dev.to/theinterviewsage/top-facebook-behavioral-interview-questions-part-1-2a0o?signin=true)
+- [Concide Guide about the interviews at Meta](https://igotanoffer.com/blogs/tech/facebook-software-engineer-interview)
