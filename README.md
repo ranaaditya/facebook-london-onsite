@@ -5,6 +5,10 @@
 
 Preparation for Facebook (now Meta) London undergrad Full-Time job Interview.
 
+#### [Technical Screening round experience](https://github.com/ranaaditya/facebook-london-interview/tree/main/technical-screening-round)
+#### [Onsite interview experience](https://github.com/ranaaditya/facebook-london-interview/tree/main/onsites-london)
+
+
 Good problems to start:
 
 1. [Next Permutation](https://leetcode.com/explore/interview/card/facebook/5/array-and-strings/3012/)
@@ -27,3 +31,4 @@ Good problems to start:
 ### Behavioural Interview ( Jedi round)  resources:
 - [Interview Sage's blog - good to start to know what exactly happens in JEDI / Behavioural Interviews](https://dev.to/theinterviewsage/top-facebook-behavioral-interview-questions-part-1-2a0o?signin=true)
 - [Concide Guide about the interviews at Meta](https://igotanoffer.com/blogs/tech/facebook-software-engineer-interview)
+
